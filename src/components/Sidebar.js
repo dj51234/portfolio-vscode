@@ -15,14 +15,15 @@ const Sidebar = () => {
     <div className="sidebar">
       <div className="sidebar_thin">
         <ul className='sidebar_thin--icons'>
-          <a data-tooltip-id="my-tooltip" data-tooltip-offset="0" data-tooltip-content="About"><Tooltip id="my-tooltip" /><li><span className='bar'></span><img src={about} alt="about"></img></li></a>
-          <a data-tooltip-id="my-tooltip" data-tooltip-offset="0" data-tooltip-content="Projects"><li><span className='bar'></span><img src={files} alt="projects"></img></li></a>
-          <a data-tooltip-id="my-tooltip" data-tooltip-offset="0" data-tooltip-content="Skills"><li><span className='bar'></span><img src={skills} alt="skills"></img></li></a>
-          <a data-tooltip-id="my-tooltip" data-tooltip-offset="0" data-tooltip-content="Resume"><li><span className='bar'></span><img src={resume} alt="resume"></img></li></a>
-          <a data-tooltip-id="my-tooltip" data-tooltip-offset="0" data-tooltip-content="Contact"><li><span className='bar'></span><img src={contact} alt="contact"></img></li></a>
+          <Tooltip id="my-tooltip" />
+          <a data-tooltip-id="my-tooltip" data-tooltip-offset="0" data-tooltip-content="About" data-tooltip-place="right"><li><span className='bar'></span><img src={about} alt="about"></img></li></a>
+          <a data-tooltip-id="my-tooltip" data-tooltip-offset="0" data-tooltip-content="Projects" data-tooltip-place="right"><li><span className='bar'></span><img src={files} alt="projects"></img></li></a>
+          <a data-tooltip-id="my-tooltip" data-tooltip-offset="0" data-tooltip-content="My Skills" data-tooltip-place="right"><li><span className='bar'></span><img src={skills} alt="skills"></img></li></a>
+          <a data-tooltip-id="my-tooltip" data-tooltip-offset="0" data-tooltip-content="Resume" data-tooltip-place="right"><li><span className='bar'></span><img src={resume} alt="resume"></img></li></a>
+          <a data-tooltip-id="my-tooltip" data-tooltip-offset="0" data-tooltip-content="Contact" data-tooltip-place="right"><li><span className='bar'></span><img src={contact} alt="contact"></img></li></a>
         </ul>
       </div>
-      <div className="sidebar_main hidden">
+      <div className="sidebar_main visible">
         <div className='sidebar_main--header'>
           <h4>EXPLORER</h4>
         </div>
