@@ -1,0 +1,90 @@
+.sidebar {
+    width: 350px;
+    height: 100vh;
+    display: flex;
+}
+
+.sidebar_thin {
+    border-right: 1px solid var(--border);
+    background: var(--medium-gray);
+    flex: 1;
+    z-index: 2;
+}
+
+.sidebar_thin--icons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: stretch;
+    list-style: none;
+}
+
+.sidebar_thin--icons img {
+    width: 2.2rem;
+    transition: .1s filter ease-in-out;
+}
+
+.sidebar_thin--icons li {
+    cursor: pointer;
+    padding: 1rem;
+    flex: 1;
+    flex-basis: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    transition: .1s all ease-in-out;
+}
+
+.sidebar_thin--icons .bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: var(--bar);
+    width: 5px;
+    height: 100%;
+    opacity: 0;
+    transition: .1s all ease-in-out;
+}
+
+.sidebar_thin--icons li:hover  {
+    background-color: var(--background);
+}
+
+.sidebar_thin--icons li:hover img  {
+    filter: brightness(2);
+}
+
+.sidebar_thin--icons li:hover .bar {
+    opacity: 1;
+}
+
+.sidebar_thin--icons #my-tooltip {
+    font-size: 1.1rem;
+}
+
+.sidebar_main {
+    flex: 6;
+    background: var(--dark-gray);
+    border-right: 1px solid var(--border);
+    transition: .3s all ease-in-out;
+}
+
+.sidebar_main.hidden {
+    transform: translateX(-100%);
+    z-index: -1;
+}
+
+.sidebar_main.visible {
+    transform: translateX(0%);
+    z-index: 1;
+}
+
+.sidebar_main--header {
+    padding: 1rem;
+}
+
+.sidebar_main h4 {
+    color: var(--icons);
+    letter-spacing: .1rem;
+}

@@ -1,0 +1,16 @@
+/* src/App.css */
+.split-inner {
+    display: flex;
+    height: 100%;
+  }
+  
+  .gutter.gutter-horizontal {
+    cursor: col-resize;
+    background-color: #555;
+    width: 10px;
+  }
+  
+  .gutter.gutter-horizontal:hover {
+    background-color: #888;
+  }
+  
