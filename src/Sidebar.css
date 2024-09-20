@@ -20,7 +20,7 @@
 }
 
 .sidebar_thin--icons img {
-    width: 2.2rem;
+    width: 2.8rem;
     transition: .1s filter ease-in-out;
 }
 
@@ -64,7 +64,7 @@
 }
 
 .sidebar_main {
-    flex: 6;
+    flex: 5;
     background: var(--dark-gray);
     border-right: 1px solid var(--border);
     transition: .3s all ease-in-out;
