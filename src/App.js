@@ -1,5 +1,4 @@
-// App.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './App.css';
 import Sidebar from './components/Sidebar';
@@ -16,11 +15,18 @@ const pageVariants = {
 const pageTransition = {
   type: 'tween',
   ease: 'anticipate',
-  duration: .7
+  duration: 0.7
 };
 
 function App() {
   const [activeComponent, setActiveComponent] = useState('hero');
+  const [isSidebarVisible, setIsSidebarVisible] = useState(true);
+  const [isInitialRender, setIsInitialRender] = useState(true);
+
+  useEffect(() => {
+    // Set isInitialRender to false after the component mounts
+    setIsInitialRender(false);
+  }, []);
 
   const renderComponent = () => {
     switch (activeComponent) {
@@ -32,15 +38,23 @@ function App() {
     }
   };
 
+  const toggleSidebar = () => {
+    setIsSidebarVisible(!isSidebarVisible);
+  };
+
   return (
     <div className='app-container'>
       <Header />
-      <div className='main-container'>
-        <Sidebar setActiveComponent={setActiveComponent} />
+      <div className={`main-container ${isSidebarVisible ? '' : 'sidebar-hidden'}`}>
+        <Sidebar
+          setActiveComponent={setActiveComponent}
+          isVisible={isSidebarVisible}
+          toggleSidebar={toggleSidebar}
+        />
         <AnimatePresence mode='wait'>
           <motion.div
             key={activeComponent}
-            initial="initial"
+            initial={isInitialRender ? false : "initial"}
             animate="in"
             exit="out"
             variants={pageVariants}

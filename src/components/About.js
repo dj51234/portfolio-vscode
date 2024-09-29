@@ -71,7 +71,7 @@ const AboutSection = () => {
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
   const [terminalHeight, setTerminalHeight] = useState(200); // Initial height
   const [typedText, setTypedText] = useState('');
-  const fullText = "Hello! I'm a passionate developer with buttsex";
+  const fullText = `Hello! I'm a passionate developer <span className='highlighted-text'>debbie</span> with buttsex`;
 
   const minHeight = 100; // Minimum terminal height in px
   const maxHeight = 600; // Maximum terminal height in px
@@ -116,20 +116,22 @@ const AboutSection = () => {
       <h2>{typedText}</h2>
       <div className="grid-container">
         <div className="grid-item">
-          <h3>Skills</h3>
+          <h3 className="heading" style={{paddingBottom: '1rem'}}>Skills</h3>
           <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
             <li>React</li>
-            <li>TypeScript</li>
-            <li>Node.js</li>
-            <li>GraphQL</li>
           </ul>
         </div>
         <div className="grid-item">
-          <h3>Experience</h3>
+          <h3 className="heading" style={{paddingBottom: '1rem'}}>Experience</h3>
           <ul>
-            <li>Senior Developer at TechCorp</li>
-            <li>Lead Frontend at StartupX</li>
             <li>Freelance Web Developer</li>
+            <li>Systems Administrator <span className="highlighted-text">|</span> Marine Corps</li>
+            <li>Associate Developer <span className="highlighted-text">|</span> Red Ventures</li>
+            <li>Creative Developer <span className="highlighted-text">|</span> Investor Management Services</li>
+            <li>Web Developer <span className="highlighted-text">|</span> Linium</li>
           </ul>
         </div>
       </div>
@@ -194,13 +196,13 @@ const AboutSection = () => {
   return (
     <div className="about-container">
       <div className="about-header">
-        <h1>About Me</h1>
+        <h1 className='heading'>About Me</h1>
         <div className="header-buttons">
-          <button onClick={toggleView} className="toggle-button">
+          <button onClick={toggleView} className="toggle-button btn-primary">
             {isCodeView ? <Eye className="button-icon" /> : <Code className="button-icon" />}
             <span>{isCodeView ? 'Preview' : 'Code'}</span>
           </button>
-          <button onClick={toggleTerminal} className="toggle-button">
+          <button onClick={toggleTerminal} className="toggle-button btn-secondary">
             <TerminalIcon className="button-icon" />
             <span>Terminal</span>
           </button>

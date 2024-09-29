@@ -1,71 +1,99 @@
-// Hero.js
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import '../Hero.css';
 
-const Hero = () => {
+const CodeRain = () => {
+  const canvasRef = useRef(null);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
   useEffect(() => {
-    function handleResize() {
-      setDimensions({
-        width: window.innerWidth - 250, // Subtracting sidebar width
-        height: window.innerHeight,
-      });
-    }
+    const updateDimensions = () => {
+      if (canvasRef.current) {
+        setDimensions({
+          width: canvasRef.current.offsetWidth,
+          height: canvasRef.current.offsetHeight
+        });
+      }
+    };
 
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener('resize', updateDimensions);
+    updateDimensions();
+
+    return () => window.removeEventListener('resize', updateDimensions);
   }, []);
 
-  const fullName = "DERRICKJOHNSON".split("");
+  useEffect(() => {
+    if (!canvasRef.current) return;
 
-  const letterColors = [
-    'var(--neon-blue)',
-    'var(--neon-pink)',
-    'var(--neon-green)',
-    'var(--neon-yellow)',
-    'var(--neon-orange)'
-  ];
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d');
+
+    canvas.width = dimensions.width;
+    canvas.height = dimensions.height;
+
+    const symbols = ['<>', '/>', '{}', '[]', '()', ';', '==', '=>', '&&', '||', '!=', '+=', '-=', '*=', '/=', '...'];
+    const columns = Math.floor(canvas.width / 20);
+    const drops = [];
+
+    for (let i = 0; i < columns; i++) {
+      drops[i] = 1;
+    }
+
+    const draw = () => {
+      ctx.fillStyle = 'rgba(18, 18, 18, 0.1)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = '#24ABF2';
+      ctx.font = '15px monospace';
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = symbols[Math.floor(Math.random() * symbols.length)];
+        ctx.fillText(text, i * 20, drops[i] * 20);
+
+        if (drops[i] * 20 > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+
+        drops[i]++;
+      }
+    };
+
+    const interval = setInterval(draw, 33);
+
+    return () => clearInterval(interval);
+  }, [dimensions]);
+
+  return <canvas ref={canvasRef} className="code-rain" />;
+};
+
+const Hero = () => {
+  const firstName = "DERRICK";
+  const lastName = "JOHNSON";
 
   return (
-    <div className="hero-container" style={{ width: dimensions.width, height: dimensions.height }}>
-      <div className="retro-grid"></div>
+    <div className="hero-container">
+      <CodeRain />
       <div className="hero-content">
-        <motion.h1 className="hero-title">
+        <h1 className="hero-title">
           <div className="name-container">
-            {fullName.map((letter, index) => (
-              <motion.span
-                key={`name-${index}`}
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="name-letter"
-                style={{ 
-                  color: letterColors[index % letterColors.length],
-                  textShadow: `0 0 10px ${letterColors[index % letterColors.length]}`,
-                }}
-              >
+            {firstName.split('').map((letter, index) => (
+              <span key={`first-${index}`} className="name-letter">
                 {letter}
-              </motion.span>
+              </span>
             ))}
           </div>
-        </motion.h1>
-        <motion.p
-          className="hero-subtitle"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.5 }}
-        >
-          Front End Web Developer
-        </motion.p>
+          <div className="name-container">
+            {lastName.split('').map((letter, index) => (
+              <span key={`last-${index}`} className="name-letter">
+                {letter}
+              </span>
+            ))}
+          </div>
+        </h1>
+        <div className="hero-subtitle-container">
+          <h2 className="hero-subtitle">Front End Web Developer</h2>
+        </div>
       </div>
-      <div className="ship-container">
-        <div className="ship"></div>
-      </div>
-      <div className="pixel-art pixel-art-1"></div>
-      <div className="pixel-art pixel-art-2"></div>
     </div>
   );
 };

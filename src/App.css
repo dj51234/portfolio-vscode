@@ -1,21 +1,15 @@
 :root {
-  --darker-gray: #151B26;
-  --dark-gray: #181F2C;
-  --medium-gray: #1C2433;
-  --light-gray: #1A212F;
-  --primary-text: #91918A;
-  --main-white: #C2E4EB;
-  --border: #11161F;
-  --header-text: #3E4F6F;
-  --hover-bg: #253043;
-  --icons: #505B71;
-  --background: #273040;
-  --bar: #8196B5;
-  --neon-blue: #00FFFF;
-  --neon-pink: #FF00FF;
-  --neon-green: #39FF14;
-  --neon-yellow: #FFFF00;
-  --neon-orange: #FF6600;
+  --primary: #24ABF2;
+  --primary-alt: #0088D2;
+  --secondary: #F26B24;
+  --background: #121212;
+  --background-alt: #0D0D0D;
+  --surface: #1E1E1E;
+  --light-bg: #272727; 
+  --text: #FFFFFF;
+  --text-secondary: #d1d1d1;
+  --blue-gray-dark: rgba(148, 191, 255, 0.418);
+  --blue-gray-light: rgba(148, 191, 255, 0.63);
 }
 
 * {
@@ -32,6 +26,9 @@ html {
 body {
   height: 100%;
   margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--background);
+  color: var(--text);
 }
 
 .app-container {
@@ -44,7 +41,7 @@ body {
 .main-container {
   display: flex;
   flex: 1;
-  background: var(--medium-gray);
+  background: var(--background);
   overflow: hidden;
 }
 
@@ -52,4 +49,63 @@ body {
   flex: 1;
   position: relative;
   overflow: hidden;
+}
+
+/* Additional styles to showcase the new color scheme */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--primary);
+}
+
+a {
+  color: var(--secondary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.heading {
+  color: var(--text);
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: .5rem;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--background);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: box-shadow .2s ease;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 10px var(--primary)
+}
+
+.btn-secondary {
+  background-color: var(--text);
+  color: var(--background);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: box-shadow .2s ease;
+}
+
+.btn-secondary:hover {
+  box-shadow: 0 0 10px var(--text)
+}
+
+.surface {
+  background-color: var(--surface);
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.text-secondary {
+  color: var(--text-secondary);
 }
