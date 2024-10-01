@@ -1,12 +1,14 @@
+/* src/App.css */
+
 :root {
-  --primary: #24ABF2;
-  --primary-alt: #0088D2;
-  --secondary: #F26B24;
+  --primary: #24abf2;
+  --primary-alt: #0088d2;
+  --secondary: #f26b24;
   --background: #121212;
-  --background-alt: #0D0D0D;
-  --surface: #1E1E1E;
-  --light-bg: #272727; 
-  --text: #FFFFFF;
+  --background-alt: #0d0d0d;
+  --surface: #1e1e1e;
+  --light-bg: #272727;
+  --text: #ffffff;
   --text-secondary: #d1d1d1;
   --blue-gray-dark: rgba(148, 191, 255, 0.418);
   --blue-gray-light: rgba(148, 191, 255, 0.63);
@@ -18,41 +20,37 @@
   margin: 0;
 }
 
-html {
-  font-size: 62.5%;
+html,
+body,
+#root {
   height: 100%;
+  overflow: hidden;
 }
 
 body {
-  height: 100%;
-  margin: 0;
   font-family: Arial, sans-serif;
   background-color: var(--background);
   color: var(--text);
 }
 
 .app-container {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  overflow: hidden;
-}
-
-.main-container {
-  display: flex;
-  flex: 1;
-  background: var(--background);
-  overflow: hidden;
-}
-
-.content-container {
-  flex: 1;
   position: relative;
+  height: 100%;
   overflow: hidden;
 }
 
-/* Additional styles to showcase the new color scheme */
-h1, h2, h3, h4, h5, h6 {
+.section {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: var(--primary);
 }
 
@@ -68,7 +66,7 @@ a:hover {
 .heading {
   color: var(--text);
   border-bottom: 2px solid var(--primary);
-  padding-bottom: .5rem;
+  padding-bottom: 0.5rem;
 }
 
 .btn-primary {
@@ -78,11 +76,11 @@ a:hover {
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
-  transition: box-shadow .2s ease;
+  transition: box-shadow 0.2s ease;
 }
 
 .btn-primary:hover {
-  box-shadow: 0 0 10px var(--primary)
+  box-shadow: 0 0 10px var(--primary);
 }
 
 .btn-secondary {
@@ -92,11 +90,11 @@ a:hover {
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
-  transition: box-shadow .2s ease;
+  transition: box-shadow 0.2s ease;
 }
 
 .btn-secondary:hover {
-  box-shadow: 0 0 10px var(--text)
+  box-shadow: 0 0 10px var(--text);
 }
 
 .surface {

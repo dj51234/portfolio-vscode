@@ -1,191 +1,56 @@
+/* src/components/About.css */
+
 .about-container {
-    background: var(--medium-gray);
-    color: var(--primary-text);
-    height: calc(100vh - 30px); /* Adjust based on your header height */
-    overflow: hidden;
     display: flex;
     flex-direction: column;
-    width: 100%; /* Ensure it takes full width */
-    position: relative; /* To contain the terminal */
-}
-
-.about-container .linenumber {
-    color: var(--icons) !important;
-}
-.about-header {
-    display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    padding: 1rem 2rem;
-    background: var(--dark-gray);
-    border-bottom: 1px solid var(--border);
-}
-.about-header h1 {
-    font-size: 2rem;
-    color: var(--text);
-}
-.toggle-button {
-    display: flex;
-    align-items: center;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 3px;
-    cursor: pointer;
-    
-}
-.header-buttons {
-    display: flex;
-    gap: 2rem;
-}
-
-.button-icon {
-    margin-right: 0.5rem;
-}
-.content-container {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    width: 100%; /* Ensure it takes full width */
-    position: relative;
-  }
-.rendered-view {
-    flex: 1;
     padding: 2rem;
-    overflow-y: auto;
-    width: 100%; /* Ensure it takes full width */
-}
-.rendered-view h2 {
-    margin-bottom: 2rem;
+    height: 100%;
+    background-color: var(--background);
     color: var(--text);
-    font-weight: 300;
-}
-
-span.highlighted-text {
-    color: var(--primary);
-}
-.code-view {
-    flex: 1;
-    overflow: auto;
-    width: 100%;
-    padding: 0 1rem !important;
-    background: #1C2433 !important;
-    font-size: 1.3rem;
   }
-
-.code-view > pre {
-    overflow: auto;
-}
-.typewriter-effect h2 {
-    font-size: 1.8rem;
-    color: var(--main-white);
-    margin-bottom: 2rem;
-}
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
-}
-.grid-item {
-    background: var(--light-gray);
-    border: 1px solid rgba(148, 191, 255, 0.418);
-    border-radius: 5px;
-    padding: 1.5rem;
-}
-.grid-item h3 {
-    font-size: 1.6rem;
+  
+  .about-container h2 {
+    font-size: 3rem;
     margin-bottom: 1rem;
-}
-.grid-item ul {
+    color: var(--primary);
+  }
+  
+  .about-container h3 {
+    font-size: 2rem;
+    margin-top: 1rem;
+    color: var(--primary-alt);
+  }
+  
+  .about-container p,
+  .about-container ul {
+    font-size: 1.6rem;
+    line-height: 1.6;
+    text-align: center;
+    max-width: 800px;
+  }
+  
+  .about-container ul {
     list-style-type: none;
     padding: 0;
-}
-.grid-item li {
-    margin-bottom: 0.5rem;
-    color: var(--text);
-    font-size: 1.2rem;
-}
-.custom-alert {
-    background: var(--surface);
-    border-left: 4px solid var(--primary);
-    padding: 1rem;
-    border-radius: 3px;
-}
-.alert-content {
-    display: flex;
-    align-items: center;
-    font-size: 1.2rem;
-}
-
-.alert-content p {
-    color: var(--main-white);
-}
-
-.alert-icon {
-    margin-right: 1rem;
-    color: var(--primary);
-}
-
-.content-wrapper {
-    flex: 1;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
+    margin: 0;
   }
-
-@media (max-width: 768px) {
-    .grid-container {
-        grid-template-columns: 1fr;
+  
+  .about-container li {
+    margin: 0.5rem 0;
+  }
+  
+  @media (max-width: 768px) {
+    .about-container h2 {
+      font-size: 2.5rem;
     }
-}
-
-.terminal-container {
-    background: var(--surface);
-    border-top: 1px solid var(--border);
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 0px;
-    display: flex;
-    flex-direction: column;
-    
-}
-
-.terminal-handle {
-    height: 10px;
-    background: var(--text);
-    cursor: ns-resize;
-    width: 100%;
-}
-.terminal {
-    flex: 1;
-    padding: 0.5rem;
-    font-family: 'Consolas', 'Courier New', monospace;
-    font-size: 1.2rem;
-    color: var(--main-white);
-    overflow-y: auto;
-}
-.terminal-output {
-    height: calc(100% - 30px);
-    overflow-y: auto;
-    margin-bottom: 0.5rem;
-}
-.terminal form {
-    display: flex;
-}
-.terminal input::placeholder {
-    color: var(--text-secondary);
-}
-.terminal input {
-    flex: 1;
-    background-color: transparent;
-    border: none;
-    color: var(--secondary);
-    font-family: inherit;
-    font-size: inherit;
-}
-.terminal input:focus {
-    outline: none;
-}
+    .about-container h3 {
+      font-size: 1.8rem;
+    }
+    .about-container p,
+    .about-container li {
+      font-size: 1.4rem;
+    }
+  }
+  
